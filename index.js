@@ -22,10 +22,11 @@ exports.handler = function(event, context, callback) {
 
 const handlers = {
     'LaunchRequest': function () {
+        //TODO: Prompt user for what type new topic they will like to retrieve
         this.emit('GetNewsHeadLinesIntent');
     },
     'GetNewsHeadLinesIntent': function () {
-        newsScraper.getNewsHeadlines()
+        newsScraper.getNews('headlines')
         .then(newsHeadlines => {
             const speechOutput = GET_NEWS_MESSAGE + newsHeadlines + END_NEWS_MESSAGE;
             this.emit(':tellWithCard', speechOutput, SKILL_NAME, newsHeadlines)
