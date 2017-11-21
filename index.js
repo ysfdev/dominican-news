@@ -2,8 +2,9 @@
 
 const Alexa = require('alexa-sdk');
 const newsScraper = require('./lib/news-scraper');
+const config = require('./config');
 
-const APP_ID = "amzn1.ask.skill.661b5b23-0ed2-49e6-8d05-23505041fe1f";
+const APP_ID = config.AVS_APP_ID;
 
 const SKILL_NAME = "Dominican News";
 const GET_NEWS_MESSAGE = "Welcome to Dominican News, Here are the latest dominican news: ";
@@ -29,10 +30,10 @@ const handlers = {
         newsScraper.getNews('headlines')
         .then(newsHeadlines => {
             const speechOutput = GET_NEWS_MESSAGE + newsHeadlines + END_NEWS_MESSAGE;
-            this.emit(':tellWithCard', speechOutput, SKILL_NAME, newsHeadlines)
+            this.emit(':tell', speechOutput, SKILL_NAME, newsHeadlines)
         })
         .catch(err => {
-            this.emit(':tellWithCard', ERROR_MESSAGE, SKILL_NAME)
+            this.emit(':tell', ERROR_MESSAGE, SKILL_NAME)
         })
     },
     'AMAZON.HelpIntent': function () {
