@@ -1,0 +1,36 @@
+[
+ {
+  "url": "https://dominicantoday.com",
+  "translate": false,
+  "topicsEndpoint": "/dr/",
+  "topics": {
+      "headlines": { 
+        "main": ".noticias1 > h1 > a", 
+        "content": { 
+          "listItem": ".noticias2 > h2 > a", 
+          "listItem": ".noticias3 > h2 > a"
+        }
+      },
+      "economy": {},
+      "technology": {},
+      "tourism": {},
+      "business-pleasure": {},
+      "people": {},
+      "sports": {}
+  }
+ }, 
+ 
+ {
+  "url": "http://eldia.com.do/nacionales",
+  "translate": true,
+  "topicsEndpoint": null,
+  "topics": {
+      "headlines": { 
+              "main": ".main-news-gallery-item-caption-wrapper > h2 > a", 
+              "second": {
+                  "listItem": ".main-article-content > a > h2"
+              }
+      }
+  }
+ }
+]

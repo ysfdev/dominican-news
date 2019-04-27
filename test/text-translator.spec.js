@@ -2,6 +2,7 @@
 
 const textTranslator = require('../lib/text-translator');
 
+//TODO: Mock side effects
 describe.skip('Text Translator', function() {
     it('Should translate text to English', function(done) {
         textTranslator.translateToEnglish(["Hola Mundo", "Yo amo programacion"])
